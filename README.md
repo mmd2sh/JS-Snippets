@@ -18,3 +18,14 @@ function toEnglishDigits(str) {
     return str;
 }
 ```
+# Replace Arabic Letters to Farsi
+```
+!function() { // Replace arabic letters to farsi
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    
+    while (walker.nextNode()) {
+        const node = walker.currentNode;
+        node.nodeValue = node.nodeValue.replace(/ي/g, 'ی').replace(/ك/g, 'ک');
+    }
+}();
+```
